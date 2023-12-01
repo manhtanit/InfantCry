@@ -12,6 +12,10 @@ import numpy as np
 
 from sklearn.manifold import TSNE
 
+import sys
+sys.path.append('InfantCry/BEATs_on_ESC50')
+for line in sys.path: print(line)
+
 from fine_tune.trainer import BEATsTransferLearningModel
 
 from BEATs.Tokenizers import TokenizersConfig, Tokenizers
@@ -60,7 +64,7 @@ def get_labels(afiles, labelfile):
 
 def loadBEATs(ft_model):
     print("The model path is:", ft_model)
-    checkpoint = torch.load("/model/BEATs_iter3_plus_AS2M.pt")
+    checkpoint = torch.load("/content/P06/BEATs_iter3_plus_AS2M.pt")
     cfg = BEATsConfig(checkpoint["cfg"])
     BEATs_model = BEATs(cfg)
 
@@ -123,7 +127,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--data_folder",
         help="Path to folder containing the data",
-        default="/content/BEATs_on_ESC50/fine_tune/audio/",
+        default="/content/P06/",
         required=False,
         type=str,
     )
@@ -131,7 +135,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--labelfile",
         help="Num samples to process and visualize",
-        default="/content/BEATs_on_ESC50/fine_tune/meta/esc50.csv",
+        default="/content/InfantCry/BEATs_on_ESC50/fine_tune/metadata.csv",
         required=False,
         type=str,
     )
@@ -147,7 +151,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--fig_name",
         help="Num samples to process and visualize",
-        default="/content/BEATs_on_ESC50/result.png",
+        default="/content/result.png",
         required=False,
         type=str,
     )
@@ -163,7 +167,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--num_categories",
         help="Num of categories to process and visualize",
-        default=3,
+        default=2,
         required=False,
         type=int,
     )
