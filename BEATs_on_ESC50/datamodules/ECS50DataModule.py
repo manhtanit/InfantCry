@@ -43,8 +43,8 @@ class AudioDataset(Dataset):
 class ECS50DataModule(LightningDataModule):
     def __init__(
         self,
-        root_dir: str = "/content/BEATs_on_ESC50/fine_tune/audio/",
-        csv_file: str = "/content/BEATs_on_ESC50/fine_tune/meta/esc50.csv",
+        root_dir: str = "/content/P06/",
+        csv_file: str = "/content/InfantCry/BEATs_on_ESC50/fine_tune/metadata.csv",
         batch_size: int = 8,
         split_ratio=0.8,
         transform=None,

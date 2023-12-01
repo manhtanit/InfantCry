@@ -4,7 +4,7 @@ from pytorch_lightning import cli_lightning_logo
 from pytorch_lightning.cli import LightningCLI
 
 import sys
-sys.path.append('BEATs_on_ESC50')
+sys.path.append('InfantCry/BEATs_on_ESC50')
 for line in sys.path: print(line)
 
 from fine_tune.transferLearning import BEATsTransferLearningModel

@@ -22,7 +22,7 @@ class BEATsTransferLearningModel(pl.LightningModule):
         lr: float = 1e-3,
         lr_scheduler_gamma: float = 1e-1,
         num_workers: int = 6,
-        model_path: str = "/content/BEATs_on_ESC50/fine_tune/BEATs_iter3_plus_AS2M.pt",
+        model_path: str = "/content/P06/BEATs_iter3_plus_AS2M.pt",
         ft_entire_network: bool = False, # Boolean on whether the classifier layer + BEATs should be fine-tuned
         **kwargs,
     ) -> None:
