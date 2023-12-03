@@ -248,7 +248,7 @@ def prepare_training_val_data(
                 break
 
     # Root directory of data to be processed
-    root_dir = "../Development_Set"
+    root_dir = "/content/DCASE/Development_Set"
 
     # Create directories for saving
     my_hash_dict = {
@@ -265,7 +265,7 @@ def prepare_training_val_data(
     hash_dir_name = hashlib.sha1(
         json.dumps(my_hash_dict, sort_keys=True).encode()
     ).hexdigest()
-    target_path = os.path.join("../Development_Set", status, hash_dir_name)
+    target_path = os.path.join("/content/DCASE/Development_Set", status, hash_dir_name)
     if overwrite:
         if os.path.exists(target_path):
             shutil.rmtree(os.path.join(target_path, "audio"))
@@ -300,7 +300,7 @@ def prepare_training_val_data(
             input_features = []
             labels = []
         # read csv file into df
-        split_list = file.split("\\")
+        split_list = file.split("/")
         glob_cls_name = split_list[split_list.index(set_type) + 1]
         file_name = split_list[split_list.index(set_type) + 2]
         df = pd.read_csv(file, header=0, index_col=False)
@@ -554,7 +554,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--config",
         help="Path to the config file",
-        default="../CONFIG.yaml",
+        default="/content/InfantCry/CONFIG.yaml",
         required=False,
         type=str,
     )
